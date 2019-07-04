@@ -139,7 +139,8 @@
     "svg4everybody": "^2.1.9",
     "turndown": "^4.0.1",
     "ua-parser-js": "github:faisalman/ua-parser-js.git#develop",
-    "vcf": "github:ProtonMail/node-vcf.git#proton"
+    "vcf": "github:ProtonMail/node-vcf.git#proton",
+    "snyk": "^1.189.0"
   },
   "license": "MIT",
   "scripts": {
@@ -168,7 +169,9 @@
     "posti18n:build": "./tasks/createI18nCache.js && ./tasks/commitI18n.sh",
     "pretty": "prettier --arrow-parens=always --single-quote --tab-width=4 --require-pragma --print-width=150 --no-prose-wrap --write $(find src/app -type f -name '*.js')",
     "precommit": "lint-staged",
-    "create": "appComponent"
+    "create": "appComponent",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": [
@@ -179,5 +182,6 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "version": "3.13.1"
+  "version": "3.13.1",
+  "snyk": true
 }
